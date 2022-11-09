@@ -1,7 +1,11 @@
 using System;
 using System.Threading.Tasks;
+using API.Errors;
+using API.Extensions;
+using API.Middleware;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,9 +25,11 @@ builder.Services.AddDbContext<StoreContext>(options =>
 
 });
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+builder.Services.AddApplicationServices();
+builder.Services.AddSwaggerDocumentation();
+
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -34,9 +40,6 @@ var app = builder.Build();
 /*    Applying Migration and Create Database in this class  */
 using (var scope = app.Services.CreateScope())
 {
-    //var db = scope.ServiceProvider.GetRequiredService<SomeDbContext>();
-    //db.Database.Migrate();
-
     var services = scope.ServiceProvider;
     var loggerFactory = services.GetRequiredService<ILoggerFactory>();
     try
@@ -44,11 +47,6 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<StoreContext>();
         await context.Database.MigrateAsync();
         await StoreContextSeed.SeedAsync(context, loggerFactory);
-
-        //var userManager = services.GetRequiredService<UserManager<AppUser>>();
-        //var identityContext = services.GetRequiredService<AppIdentityDbContext>();
-        //await identityContext.Database.MigrateAsync();
-        //await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
     }
     catch (Exception ex)
     {
@@ -58,11 +56,10 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseSwaggerDocumentation();
+
+app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 app.UseHttpsRedirection();
 

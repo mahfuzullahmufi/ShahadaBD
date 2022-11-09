@@ -7,6 +7,8 @@ using ShahadaBD.DTO;
 using ShahadaBD.Entities;
 using ShahadaBD.Repository;
 using ShahadaBD.Specificatons;
+using Microsoft.AspNetCore.Http;
+using API.Errors;
 
 namespace ShahadaBD.Controllers
 {
@@ -43,12 +45,14 @@ namespace ShahadaBD.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ProductToReturnDTO> GetProductById(int id)
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(id);
 
             var product = await _productsRepo.GetEntityWithSpec(spec);
-            
+
             return _mapper.Map<Product, ProductToReturnDTO>(product);
             /* If Don't Use AutoMapper */
             //return new ProductToReturnDTO
