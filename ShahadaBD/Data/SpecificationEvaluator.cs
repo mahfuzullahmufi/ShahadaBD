@@ -15,15 +15,15 @@ namespace ShahadaBD.Data
                 query = query.Where(spec.Criteria);  // p => p.ProductTypeId == Id
             }
 
-            //if (spec.OrderBy != null)
-            //{
-            //    query = query.OrderBy(spec.OrderBy);
-            //}
+            if (spec.OrderBy != null)
+            {
+                query = query.OrderBy(spec.OrderBy);
+            }
 
-            //if (spec.OrderByDescending != null)
-            //{
-            //    query = query.OrderByDescending(spec.OrderByDescending);
-            //}
+            if (spec.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(spec.OrderByDescending);
+            }
 
             //if (spec.IsPagingEnabled)
             //{
