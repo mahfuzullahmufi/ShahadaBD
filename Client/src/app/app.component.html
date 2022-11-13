@@ -1,4 +1,15 @@
-<div class="container">
-  <h1>Your ShahadaBD Site is Ready...!</h1>
-  <button class="btn btn-primary">Ok</button>
+<!-- <ngx-spinner>
+  <h3>Loading...</h3>
+</ngx-spinner> -->
+<!-- <app-section-header></app-section-header> -->
+<div class="container" >
+  <app-nav-bar></app-nav-bar>
+  <div>
+    <ol>
+      <li class="list-unstyled" *ngFor="let product of products">
+        {{product.name}} 
+      </li>
+    </ol>
+  </div>
+  
 </div>
