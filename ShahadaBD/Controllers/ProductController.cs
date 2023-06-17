@@ -65,17 +65,7 @@ namespace ShahadaBD.Controllers
             if (product == null) return NotFound(new ApiResponse(404));
 
             return _mapper.Map<Product, ProductToReturnDTO>(product);
-            /* If Don't Use AutoMapper */
-            //return new ProductToReturnDTO
-            //{
-            //    Id = product.Id,
-            //    Name = product.Name,
-            //    Description = product.Description,
-            //    Price = product.Price,
-            //    PictureUrl = product.PictureUrl,
-            //    ProductBrand = product.ProductBrand.Name,
-            //    ProductType = product.ProductType.Name
-            //};
+            
         }
 
         [HttpGet("brands")]
