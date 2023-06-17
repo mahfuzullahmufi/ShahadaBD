@@ -1,32 +1,31 @@
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-<div class="container" >
-  <a class="navbar-brand " >
-    <img src="/assets/images/ShahadaBD.jpg"
-    style="max-height: 50px"
-    alt="logo"
-    class="logo rounded-circle"
-    routerLink="/"/>
-  </a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse " id="navbarColor01">
-    <ul class="navbar-nav me-auto ">
-      <li class="nav-item">
-        <a class="nav-link " [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home
-          <span class="visually-hidden">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/shop" routerLinkActive="active">Shop</a>
-      </li>
-      <!-- <li class="nav-item">
+  <div class="container">
+    <a class="navbar-brand ">
+      <img src="/assets/images/ShahadaBD.jpg" style="max-height: 50px" alt="logo" class="logo rounded-circle"
+        routerLink="/" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarColor01">
+      <ul class="navbar-nav me-auto ">
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['/']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">Shop</a>
+        </li>
+        <!-- <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
       </li> -->
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/test-error" routerLinkActive="active">Error</a>
-      </li>
-      <!-- <li class="nav-item dropdown">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/test-error" routerLinkActive="active">Error</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Action</a>
@@ -36,19 +35,19 @@
           <a class="dropdown-item" href="#">Separated link</a>
         </div>
       </li> -->
-    </ul>
-    <!-- <form class="d-flex">
+      </ul>
+      <!-- <form class="d-flex">
       <input class="form-control me-sm-2" type="search" placeholder="Search">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form> -->
+    </div>
   </div>
-</div>
-<div class="d-flex align-items-center">
+  <div class="d-flex align-items-center">
     <a routerLink="/basket" class="position-relative">
       <i class="fa fa-shopping-cart fa-2x px-3 text-white"></i>
       <!-- <div *ngIf="(basket$ | async) as basket" class="cart-no">{{basket.items.length}}</div> -->
     </a>
-  
+
     <!-- <ng-container *ngIf="(currentUser$ | async) === null">
     <a routerLink="/account/login" class="btn btn-outline-secondary mr-2" href="#">Login</a>
     <a routerLink="/account/register" class="btn btn-outline-secondary mr-3" href="#">Sign up</a>
