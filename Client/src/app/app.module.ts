@@ -11,6 +11,7 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ShopModule,
     NgxSpinnerModule,
     CarouselModule.forRoot(),
+    HomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
