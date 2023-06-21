@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace ShahadaBD.Specificatons
+namespace Core.Specificatons
 {
     public interface ISpecification
     {

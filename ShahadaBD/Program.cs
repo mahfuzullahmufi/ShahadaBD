@@ -1,18 +1,8 @@
-using System;
-using System.Threading.Tasks;
-using API.Errors;
 using API.Extensions;
 using API.Middleware;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using ShahadaBD.Data;
 using ShahadaBD.Helpers;
-using ShahadaBD.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

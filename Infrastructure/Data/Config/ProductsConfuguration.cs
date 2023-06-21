@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ShahadaBD.Entities;
+using Core.Entities;
 
-namespace ShahadaBD.Data.Config
+namespace Infrastructure.Data.Config
 {
     public class ProductsConfuguration : IEntityTypeConfiguration<Product>
     {

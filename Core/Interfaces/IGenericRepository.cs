@@ -1,8 +1,7 @@
-﻿using ShahadaBD.Entities;
-using ShahadaBD.Specificatons;
-using static ShahadaBD.Specificatons.ISpecification;
+﻿using Core.Entities;
+using static Core.Specificatons.ISpecification;
 
-namespace ShahadaBD.Repository
+namespace Core.Interfaces
 {
     public interface IGenericRepository<T> where T : BaseEntity
     {

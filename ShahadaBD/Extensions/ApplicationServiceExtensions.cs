@@ -1,8 +1,7 @@
-using System.Linq;
 using API.Errors;
+using Core.Interfaces;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using ShahadaBD.Repository;
 
 namespace API.Extensions
 {

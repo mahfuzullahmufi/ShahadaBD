@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ShahadaBD.Data;
-using ShahadaBD.Entities;
+﻿using Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Infrastructure.Data;
+using Core.Entities;
 
-namespace ShahadaBD.Repository
+namespace Infrastructure.Data
 {
     public class ProductRepository : IProductRepository
     {

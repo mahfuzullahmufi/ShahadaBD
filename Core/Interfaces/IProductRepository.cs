@@ -1,6 +1,6 @@
-﻿using ShahadaBD.Entities;
+﻿using Core.Entities;
 
-namespace ShahadaBD.Repository
+namespace Core.Interfaces
 {
     public interface IProductRepository
     {

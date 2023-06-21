@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ShahadaBD.Data;
 using ShahadaBD.DTO;
-using ShahadaBD.Entities;
-using ShahadaBD.Repository;
-using ShahadaBD.Specificatons;
-using Microsoft.AspNetCore.Http;
 using API.Errors;
 using API.Helpers;
+using Core.Interfaces;
+using Core.Entities;
+using Core.Specificatons;
 
 namespace ShahadaBD.Controllers
 {

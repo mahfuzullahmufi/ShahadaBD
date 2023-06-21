@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
-using static ShahadaBD.Specificatons.ISpecification;
+using static Core.Specificatons.ISpecification;
 
-namespace ShahadaBD.Specificatons
+namespace Core.Specificatons
 {
     public class BaseSpecifcation<T> : ISpecification<T>
     {

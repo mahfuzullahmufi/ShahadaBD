@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ShahadaBD.Data;
-using ShahadaBD.Entities;
-using static ShahadaBD.Specificatons.ISpecification;
+﻿using Core.Entities;
+using static Core.Specificatons.ISpecification;
+using Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
-namespace ShahadaBD.Repository
+namespace Infrastructure.Data
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {

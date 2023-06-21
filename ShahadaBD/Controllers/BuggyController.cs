@@ -1,7 +1,7 @@
 using API.Errors;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ShahadaBD.Data;
 
 namespace API.Controllers
 {

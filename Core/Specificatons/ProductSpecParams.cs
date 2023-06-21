@@ -1,4 +1,4 @@
-namespace ShahadaBD.Specificatons
+namespace Core.Specificatons
 {
     public class ProductSpecParams
     {

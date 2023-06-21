@@ -1,6 +1,6 @@
-using ShahadaBD.Entities;
+using Core.Entities;
 
-namespace ShahadaBD.Specificatons
+namespace Core.Specificatons
 {
     public class ProductsWithFiltersForCountSpecification : BaseSpecifcation<Product>
     {

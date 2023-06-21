@@ -1,4 +1,4 @@
-﻿namespace ShahadaBD.Entities
+﻿namespace Core.Entities
 {
     public class BaseEntity
     {

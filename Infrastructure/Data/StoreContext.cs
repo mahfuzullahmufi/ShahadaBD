@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ShahadaBD.Entities;
+using Core.Entities;
 using System.Reflection;
 
-namespace ShahadaBD.Data
+namespace Infrastructure.Data
 {
     public class StoreContext : DbContext
     {

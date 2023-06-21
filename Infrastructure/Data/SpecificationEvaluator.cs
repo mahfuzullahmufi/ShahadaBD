@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShahadaBD.Entities;
-using static ShahadaBD.Specificatons.ISpecification;
+using Core.Entities;
+using static Core.Specificatons.ISpecification;
 
-namespace ShahadaBD.Data
+namespace Infrastructure.Data
 {
     public class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
     {

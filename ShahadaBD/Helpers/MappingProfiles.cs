@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Core.Entities;
 using ShahadaBD.DTO;
-using ShahadaBD.Entities;
 
 namespace ShahadaBD.Helpers
 {
