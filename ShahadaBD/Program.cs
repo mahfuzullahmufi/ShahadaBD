@@ -2,7 +2,9 @@ using API.Extensions;
 using API.Middleware;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using ShahadaBD.Helpers;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,16 @@ builder.Services.AddDbContext<StoreContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection"));
 
+});
+//services.AddDbContext<AppIdentityDbContext>(x =>
+//{
+//    x.UseNpgsql(_config.GetConnectionString("IdentityConnection"));
+//});
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
+{
+    var configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
+    return ConnectionMultiplexer.Connect(configuration);
 });
 
 builder.Services.AddApplicationServices();
