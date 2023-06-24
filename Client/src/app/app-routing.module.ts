@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'shop', loadChildren: () => import('./shop/shop.module').then(mod => mod.ShopModule),
     data: { breadcrumb: 'Shop' }
   },
+  {
+    path: 'busket', loadChildren: () => import('./busket/busket.module').then(mod => mod.BusketModule),
+    data: { breadcrumb: 'Busket' }
+  },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
 
