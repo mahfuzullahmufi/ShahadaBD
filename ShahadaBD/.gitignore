@@ -1,1 +1,5 @@
 ﻿appsettings.json
+obj
+bin
+*.db
+*.rdb

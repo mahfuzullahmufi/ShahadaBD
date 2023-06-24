@@ -6,12 +6,17 @@ import { PagerComponent } from './pager/pager.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderTotalsComponent } from './order-totals/order-totals.component';
+import { BusketSummaryComponent } from './busket-summary/busket-summary.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    OrderTotalsComponent,
+    BusketSummaryComponent
   ],
   imports: [
     CommonModule,
@@ -20,13 +25,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BsDropdownModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
+    RouterModule
   ],
   exports: [
     PaginationModule,
     PagingHeaderComponent,
     PagerComponent,
     BsDropdownModule,
-    CarouselModule
+    CarouselModule,
+    OrderTotalsComponent,
+    BusketSummaryComponent
   ]
 })
 export class SharedModule { }

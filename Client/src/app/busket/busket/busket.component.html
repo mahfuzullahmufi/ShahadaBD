@@ -1,1 +1,31 @@
-<p>busket works!</p>
+<div class="container mt-2">
+    <div *ngIf="(busket$ | async) === null">
+        <p>There are no items in your busket</p>
+    </div>
+
+    <div *ngIf="busket$ | async">
+        <div class="pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-5 mb-1">
+                        <app-busket-summary (decrement)="decrementItemQuantity($event)"
+                            (increment)="incrementItemQuantity($event)" (remove)="removeBusketItem($event)"
+                            [items]="(busket$ | async).items"></app-busket-summary>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 offset-6">
+                        <app-order-totals *ngIf="(busketTotals$ | async)"
+                            [shippingPrice]="(busketTotals$ | async).shipping"
+                            [subtotal]="(busketTotals$ | async).subtotal"
+                            [total]="(busketTotals$ | async).total"></app-order-totals>
+                        <a routerLink="/checkout" class="btn btn-outline-primary py-2 btn-block">
+                            Proceed to checkout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

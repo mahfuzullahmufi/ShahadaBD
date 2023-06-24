@@ -20,6 +20,10 @@ const routes: Routes = [
     path: 'busket', loadChildren: () => import('./busket/busket.module').then(mod => mod.BusketModule),
     data: { breadcrumb: 'Busket' }
   },
+  {
+    path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule),
+    data: { breadcrumb: 'Chekcout' }
+  },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
 

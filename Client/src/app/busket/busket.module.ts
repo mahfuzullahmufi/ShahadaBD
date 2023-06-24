@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BusketRoutingModule } from './busket-routing.module';
 import { BusketComponent } from './busket/busket.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { BusketComponent } from './busket/busket.component';
   ],
   imports: [
     CommonModule,
-    BusketRoutingModule
+    BusketRoutingModule,
+    SharedModule
   ]
 })
 export class BusketModule { }
