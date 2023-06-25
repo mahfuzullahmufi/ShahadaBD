@@ -1,8 +1,12 @@
 using API.Extensions;
 using API.Middleware;
+using Core.Entities.Identity;
 using Infrastructure.Data;
+using Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using ShahadaBD.Helpers;
 using StackExchange.Redis;
 
@@ -16,10 +20,10 @@ builder.Services.AddDbContext<StoreContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection"));
 
 });
-//services.AddDbContext<AppIdentityDbContext>(x =>
-//{
-//    x.UseNpgsql(_config.GetConnectionString("IdentityConnection"));
-//});
+builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
+});
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
 {
@@ -28,6 +32,7 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
 });
 
 builder.Services.AddApplicationServices();
+builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddSwaggerDocumentation();
 
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
@@ -56,6 +61,11 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<StoreContext>();
         await context.Database.MigrateAsync();
         await StoreContextSeed.SeedAsync(context, loggerFactory);
+
+        var userManager = services.GetRequiredService<UserManager<AppUser>>();
+        var identityContext = services.GetRequiredService<AppIdentityDbContext>();
+        await identityContext.Database.MigrateAsync();
+        await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
     }
     catch (Exception ex)
     {
